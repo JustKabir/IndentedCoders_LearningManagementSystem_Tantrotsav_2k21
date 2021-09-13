@@ -4,8 +4,8 @@ function Navbar() {
   return (
     <div>
         <nav>
-            <div className="nav-wrapper">
-            <Link to="#!" className="brand-logo">Example</Link>
+            <div className="container nav-wrapper">
+            <Link to="#!" className="brand-logo">Learn IT</Link>
             <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
             <ul className="right hide-on-med-and-down">
                 <li><Link to="/login">Login</Link></li>
