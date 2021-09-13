@@ -6,6 +6,9 @@ import Navbar from './components/navbar'
 import ProtectedResource from './components/protectedResource';
 import Register from './components/register';
 import {reducer,initialState} from './reducers/userReducer'
+import CreateClass from './components/createClass';
+import AllClass from './components/allClass';
+import EditClass from './components/editClass';
 
 export const UserContext = createContext()
 
@@ -17,23 +20,28 @@ const Routing = ()=>{
     const user = JSON.parse(localStorage.getItem("user"))
     if(user){
       dispatch({type:"USER",payload:user})
-      history.push("/protectedResource")
+      history.push("/allClass")
     }else{
-      history.push("/login")
+      history.push("/")
     }
   },[])
   return(
     <Switch>
-        <Route exact path="/login">
+        <Route exact path="/">
         <Login />
-      </Route>
-      
-      <Route path="/register">
-        <Register />
       </Route>
 
       <Route path="/protectedResource">
         <ProtectedResource />
+      </Route>
+      <Route path="/createClass">
+        <CreateClass/>
+      </Route>
+      <Route path="/allClass">
+        <AllClass/>
+      </Route>
+      <Route path="/class/:id">
+        <EditClass/>
       </Route>
       </Switch>
   )

@@ -28,7 +28,7 @@ function Login() {
                       localStorage.setItem("jwt",data.token)
                       localStorage.setItem("user",JSON.stringify(data.user))
                       M.toast({html: "Signed In Successully", classes:"#43a047 green darken-1"})
-                      history.push('/protectedResource')
+                      history.push('/createClass')
                   }
               }).catch(error=>{
                   console.log(error)
@@ -53,11 +53,10 @@ function Login() {
                 }}
               />
               <button className="waves-effect waves-light btn large-btn"
-              onClick={()=>signInUser()}
-              >
+              onClick={()=>signInUser()}>
                   Sign IN
-              </button><br/>
-              <Link to="/register">Dont have an account? Click here</Link>
+              </button>
+              <br/>
           </div>
     );
   }

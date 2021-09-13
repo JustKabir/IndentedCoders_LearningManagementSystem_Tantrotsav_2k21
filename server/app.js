@@ -10,9 +10,12 @@ mongoose.connect(MONGOURI,{
 })
 
 require('./models/user')
+require('./models/classroom')
 
 app.use(express.json())
+
 app.use(require('./routes/auth'))
+app.use(require('./routes/class'))
 
 mongoose.connection.on('connected',()=>{
     console.log("successfully connected to the database")
