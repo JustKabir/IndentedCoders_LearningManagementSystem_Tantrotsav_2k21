@@ -1,8 +1,11 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import M from 'materialize-css'
-import { useHistory} from 'react-router-dom'
+import { useHistory, Link} from 'react-router-dom'
 
 function CreateClass() {
+    useEffect(()=>{
+        M.AutoInit()
+    },[])
     const history =useHistory()
           const [classroomName,setClassroomName] = useState("")
           const createClass = ()=>{
@@ -29,6 +32,13 @@ function CreateClass() {
               })
           }
     return (
+        <div>
+                <ul id="slide-out" class="sidenav">
+                <li><Link to="/allClass">All Class</Link></li>
+                <li><Link to="/createClass">Create Class</Link></li>
+                <li><Link to="/registerTeacher">Register Teacher</Link></li>
+            </ul>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <div className="card" style={{maxWidth:'500px', padding: '10px' ,margin: '200px auto', textAlign: 'center'}}>
               <input 
               placeholder="Class Name" 
@@ -43,6 +53,7 @@ function CreateClass() {
               >
                   Create Class
               </button><br/>
+          </div>
           </div>
     );
 }

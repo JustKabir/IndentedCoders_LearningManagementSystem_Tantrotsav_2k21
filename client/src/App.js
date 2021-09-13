@@ -9,7 +9,6 @@ import {reducer,initialState} from './reducers/userReducer'
 import CreateClass from './components/createClass';
 import AllClass from './components/allClass';
 import EditClass from './components/editClass';
-
 export const UserContext = createContext()
 
 const Routing = ()=>{
@@ -34,6 +33,9 @@ const Routing = ()=>{
       <Route path="/protectedResource">
         <ProtectedResource />
       </Route>
+      <Route path="/registerTeacher">
+        <Register/>
+      </Route>
       <Route path="/createClass">
         <CreateClass/>
       </Route>
@@ -56,7 +58,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Navbar />
-      <Routing/>
+        <Routing/>
       </BrowserRouter>
     </div>
     </UserContext.Provider>

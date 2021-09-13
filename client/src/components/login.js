@@ -27,8 +27,15 @@ function Login() {
                       dispatch({type:"USER",payload:data.user})
                       localStorage.setItem("jwt",data.token)
                       localStorage.setItem("user",JSON.stringify(data.user))
-                      M.toast({html: "Signed In Successully", classes:"#43a047 green darken-1"})
-                      history.push('/createClass')
+                      if(data.type=="ADMIN"){
+                        localStorage.setItem("type",JSON.stringify(data.type))
+                        M.toast({html: "Welcome Admin", classes:"#43a047 green darken-1"})
+                        history.push('/allClass')
+                      }else if(data.type=="TEACHER"){
+                        localStorage.setItem("type",JSON.stringify(data.type))
+                        M.toast({html: `Welcome Professor`, classes:"#43a047 green darken-1"})
+                        history.push('/protectedResource')
+                      }
                   }
               }).catch(error=>{
                   console.log(error)

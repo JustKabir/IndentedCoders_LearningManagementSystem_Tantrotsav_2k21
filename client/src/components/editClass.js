@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import {useParams,useHistory} from 'react-router-dom'
+import {useParams,useHistory, Link} from 'react-router-dom'
 import M from 'materialize-css'
 
 function EditClass() {
@@ -36,6 +36,14 @@ function EditClass() {
         M.AutoInit()
     },[])
     return (
+        <div>
+        <ul id="slide-out" class="sidenav">
+            <li><Link to="/allClass">All Class</Link></li>
+            <li><Link to="/createClass">Create Class</Link></li>
+            <li><Link to="/registerTeacher">Register Teacher</Link></li>
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        
         <div className="container">
             Edit {id}
             <br/>
@@ -67,6 +75,7 @@ function EditClass() {
                 </button>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

@@ -11,6 +11,7 @@ mongoose.connect(MONGOURI,{
 
 require('./models/user')
 require('./models/classroom')
+require('./models/teacher')
 
 app.use(express.json())
 
