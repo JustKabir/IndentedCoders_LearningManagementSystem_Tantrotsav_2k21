@@ -35,6 +35,10 @@ function Login() {
                         localStorage.setItem("type",JSON.stringify(data.type))
                         M.toast({html: `Welcome Professor`, classes:"#43a047 green darken-1"})
                         history.push('/protectedResource')
+                      }else if(data.type=="STUDENT"){
+                        localStorage.setItem("type",JSON.stringify(data.type))
+                        M.toast({html: `Welcome Student`, classes:"#43a047 green darken-1"})
+                        history.push(`/class/${data.user.studentClass}`)
                       }
                   }
               }).catch(error=>{

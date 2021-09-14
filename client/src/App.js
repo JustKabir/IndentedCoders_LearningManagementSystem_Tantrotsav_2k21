@@ -9,6 +9,7 @@ import {reducer,initialState} from './reducers/userReducer'
 import CreateClass from './components/createClass';
 import AllClass from './components/allClass';
 import EditClass from './components/editClass';
+import AddStudents from './components/addStudents';
 export const UserContext = createContext()
 
 const Routing = ()=>{
@@ -44,6 +45,9 @@ const Routing = ()=>{
       </Route>
       <Route path="/class/:id">
         <EditClass/>
+      </Route>
+      <Route path="/addStudents">
+        <AddStudents/>
       </Route>
       </Switch>
   )

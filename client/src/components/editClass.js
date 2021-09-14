@@ -7,6 +7,9 @@ function EditClass() {
     const {id} = useParams()
     const [subjectName,setSubjectName] = useState("")
     const [teacherName,setTeacherName] = useState("")
+    const [activeSub,setActiveSub] = useState("")
+    const [userType,setUserType] = useState(false)
+    const [subjects,setSubjects] = useState([])
     const addSubject = ()=>{
         fetch("/addSubject",{
             method:"put",
@@ -33,6 +36,24 @@ function EditClass() {
         })
     }
     useEffect(()=>{
+        if(localStorage.getItem("type")=="ADMIN"){
+            setUserType(true)
+            console.log(userType)
+        }
+        fetch('/classSubject',{
+            method:"post",
+            headers:{
+                "Authorization":"Bearer "+localStorage.getItem("jwt"),
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                id
+            })
+        }).then(res=>res.json())
+        .then(result=>{
+            setSubjects(result)
+            console.log(subjects)
+        })
         M.AutoInit()
     },[])
     return (
@@ -41,12 +62,55 @@ function EditClass() {
             <li><Link to="/allClass">All Class</Link></li>
             <li><Link to="/createClass">Create Class</Link></li>
             <li><Link to="/registerTeacher">Register Teacher</Link></li>
+            <li><Link to="/addStudents">Add Students</Link></li>
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         
         <div className="container">
-            Edit {id}
+            <h5>{id}</h5>
             <br/>
+            <div className="row">
+                <div className="col s3">
+            {
+                subjects.map(item=>{
+                    return(
+                    <div style={{margin:"5px",padding:"5px"}} className="card">
+                        <h6>Sub: {item.subjectName}</h6>
+                        <p>Prof: {item.teacherName}</p>
+                    </div>
+                    )
+                })
+            }
+            </div>
+                <div style={{margin:"5px",padding:"5px"}} className="col s8 offset-s3 card">
+                    <h5 >Subject info</h5>
+                    <table className="striped">
+        <thead>
+          <tr>
+              <th>Subject</th>
+              <th>Notification</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>DBMS</td>
+            <td>Assignment 1</td>
+          </tr>
+          <tr>
+            <td>Internet Programming</td>
+            <td>IAT 1 results</td>
+          </tr>
+          <tr>
+            <td>DBMS</td>
+            <td>Exam time table</td>
+          </tr>
+        </tbody>
+      </table>
+            
+
+                </div>
+            </div>
             <button data-target="modal1" className="btn modal-trigger">Add Subject</button>
 
             <div id="modal1" className="modal">

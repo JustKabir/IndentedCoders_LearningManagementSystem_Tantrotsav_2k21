@@ -3,6 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const User = mongoose.model("User")
 const Teacher = mongoose.model("Teacher")
+const Student = mongoose.model("Student")
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { JWT_KEY } = require('../keys')
@@ -48,7 +49,27 @@ router.post('/signin',(req,res)=>{
             Teacher.findOne({teacherName:name})
             .then(savedTeacher=>{
                 if(!savedTeacher){
-                    return res.status(422).json({error:"Invalid Name or Password"})
+                    Student.findOne({studentName:name})
+                    .then(savedStudent=>{
+                        if(!savedStudent){
+                            return res.status(422).json({error:"Invalid Name or Password"})
+                        }
+                        bcrypt.compare(password,savedStudent.password)
+                        .then(Matched=>{
+                            if(Matched){
+                                // res.json({message:"successfully signed in"})
+                                const token =jwt.sign({_id:savedStudent._id},JWT_KEY)
+                                res.json({token,user:{name:savedStudent.studentName,studentClass:savedStudent.studentClass},type:"STUDENT"})
+                            }
+                            else{
+                                return res.status(422).json({error:"Invalid Name or Password"})
+                            }
+                        })
+                        .catch(error=>{
+                            console.log(error)
+                        })
+                    })
+                    
                 }
                 bcrypt.compare(password,savedTeacher.password)
                 .then(Matched=>{

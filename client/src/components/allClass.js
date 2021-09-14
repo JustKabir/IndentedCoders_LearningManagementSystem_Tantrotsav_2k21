@@ -13,7 +13,7 @@ function AllClass() {
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt"),
                 "Content-Type":"application/json"
-            }
+            },
         }).then(res=>res.json())
         .then(result=>{
             setClasses(result)
@@ -26,6 +26,7 @@ function AllClass() {
             <li><Link to="/allClass">All Class</Link></li>
             <li><Link to="/createClass">Create Class</Link></li>
             <li><Link to="/registerTeacher">Register Teacher</Link></li>
+            <li><Link to="/addStudents">Add Students</Link></li>
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <div className="container">
@@ -34,7 +35,7 @@ function AllClass() {
                     classes.map(item=>{
                         const url = `/class/${item.classroomName}`
                         return(
-                            <div className="card col s12 m3">
+                            <div style={{margin:"5px",padding:"5px"}} className="card col s12 m3">
                                 <h6>{item.classroomName}</h6>
                                 <button className="waves-effect waves-light btn large-btn"
                                 onClick={()=>{

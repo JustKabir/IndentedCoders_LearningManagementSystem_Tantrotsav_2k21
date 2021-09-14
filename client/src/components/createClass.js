@@ -37,6 +37,7 @@ function CreateClass() {
                 <li><Link to="/allClass">All Class</Link></li>
                 <li><Link to="/createClass">Create Class</Link></li>
                 <li><Link to="/registerTeacher">Register Teacher</Link></li>
+                <li><Link to="/addStudents">Add Students</Link></li>
             </ul>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <div className="card" style={{maxWidth:'500px', padding: '10px' ,margin: '200px auto', textAlign: 'center'}}>

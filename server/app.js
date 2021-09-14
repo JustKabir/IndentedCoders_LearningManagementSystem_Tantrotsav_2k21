@@ -1,4 +1,5 @@
 const express = require('express')
+const fileupload = require('express-fileupload')
 const app = express()
 const mongoose = require('mongoose')
 const PORT = 5000
@@ -12,8 +13,10 @@ mongoose.connect(MONGOURI,{
 require('./models/user')
 require('./models/classroom')
 require('./models/teacher')
+require('./models/student')
 
-app.use(express.json())
+app.use(express.json());
+app.use(fileupload());
 
 app.use(require('./routes/auth'))
 app.use(require('./routes/class'))
