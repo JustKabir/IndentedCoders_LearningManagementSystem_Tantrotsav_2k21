@@ -38,7 +38,7 @@ function AllClass() {
                         classes.map(item => {
                             const url = `/class/${item.classroomName}`
                             return (
-                                <div style={{ padding: "15px auto", width:'30%', margin:'1%', height:'100px', backgroundColor:'#ffe7d9' }} className="card col l4">
+                                <div style={{ padding: "15px auto", width:'30%', margin:'1%', height:'100px',  }} className="card col l4">
                                     <h6>{item.classroomName}</h6>
                                     <button className="waves-effect waves-light btn large-btn"
                                         onClick={() => {

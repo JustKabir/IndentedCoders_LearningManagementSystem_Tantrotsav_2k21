@@ -67,7 +67,7 @@ function Login() {
                     position: "relative",
                     top: "50%",
                     transform: "translate(0, 50%)",
-                    backgroundColor:'#ffe7d9'
+                    
                 }
             } >
             <div style={{padding:'0 50px'}}>

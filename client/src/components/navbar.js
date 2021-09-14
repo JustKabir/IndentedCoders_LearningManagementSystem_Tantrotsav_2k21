@@ -14,7 +14,7 @@ function Navbar() {
           dispatch({ type: "CLEAR" })
           history.push('/')
         }}
-        className='black-text'
+        
         >
           Log Out
         </a></li>
@@ -24,9 +24,9 @@ function Navbar() {
 
   return (
     <div>
-      <nav style={{ backgroundColor: '#ffaf80' }}>
+      <nav style={{ backgroundColor: '#2196f3' }}>
         <div className="container nav-wrapper ">
-          <Link to="#!" className="brand-logo black-text" style={{fontFamily:'Pacifico'}}>Learn IT</Link>
+          <Link to="#!" className="brand-logo " style={{fontFamily:'Pacifico'}}>Learn IT</Link>
           <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <ul className="right hide-on-med-and-down">
             {renderList()}

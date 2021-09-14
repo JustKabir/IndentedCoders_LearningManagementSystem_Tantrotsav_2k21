@@ -70,7 +70,7 @@ function EditClass() {
             </div>
 
             <div className="container">
-                <h5 style={{ color: '#ffaf80' }}>{id}</h5>
+                <h5 style={{ color: '#2196f3' }}>{id}</h5>
                 <br />
                 <div className="row">
                     <div className="col s3">

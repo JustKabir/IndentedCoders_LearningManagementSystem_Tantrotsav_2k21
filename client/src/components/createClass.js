@@ -53,7 +53,7 @@ function CreateClass() {
                     position: "relative",
                     top: "50%",
                     transform: "translate(0, 60%)",
-                    backgroundColor:'#ffe7d9'
+                    
                 }
             }>
                 <input

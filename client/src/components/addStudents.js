@@ -54,8 +54,7 @@ function AddStudents() {
                         position: "relative",
                         left: '50%',
                         top: "50%",
-                        transform: "translate(-50%, 60%)",
-                        backgroundColor: '#ffe7d9'
+                        transform: "translate(-50%, 60%)"
                     }
                 }>
                     <div class="file-field input-field">

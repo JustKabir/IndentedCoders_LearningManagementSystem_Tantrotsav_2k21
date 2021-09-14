@@ -55,8 +55,7 @@ function Register() {
                         textAlign: "center",
                         position: "relative",
                         top: "50%",
-                        transform: "translate(0, 60%)",
-                        backgroundColor: '#ffe7d9'
+                        transform: "translate(0, 60%)"
                     }
                 }>
                 <input
