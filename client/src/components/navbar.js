@@ -14,7 +14,7 @@ function Navbar() {
           dispatch({ type: "CLEAR" })
           history.push('/')
         }}
-        
+        style={{lineHeight:'9vmin'}}
         >
           Log Out
         </a></li>
@@ -24,11 +24,11 @@ function Navbar() {
 
   return (
     <div>
-      <nav style={{ backgroundColor: '#2196f3' }}>
-        <div className="container nav-wrapper ">
-          <Link to="#!" className="brand-logo " style={{fontFamily:'Pacifico'}}>Learn IT</Link>
+      <nav style={{ backgroundColor: '#11CBD7', height:'9vmin'}}>
+        <div className="nav-wrapper" style={{margin: 'auto 10%'}}>
+          <Link to="#!" className="brand-logo" style={{fontFamily:'Pacifico', lineHeight:'9vmin'}}>Learn IT</Link>
           <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-          <ul className="right hide-on-med-and-down">
+          <ul className="right hide-on-med-and-down" style={{marginRight:'5%'}}>
             {renderList()}
           </ul>
         </div>

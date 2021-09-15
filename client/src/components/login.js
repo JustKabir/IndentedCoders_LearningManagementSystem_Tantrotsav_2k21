@@ -56,21 +56,22 @@ function Login() {
             });
     };
     return (
-        <div className="card"
+        <div className="card login-card"
             style={
                 {
-                    maxWidth: "500px",
+                    maxWidth: "400px",
                     height: "330px",
                     padding: "10px",
                     margin: "auto",
                     textAlign: "center",
                     position: "relative",
-                    top: "50%",
-                    transform: "translate(0, 50%)",
-                    
+                    transform: "translate(0, 25%)",
+                    border: '1px solid #dfdfdf',
+                    borderRadius: '4px',
+                    backgroundColor: '#F0FFF3',
                 }
             } >
-            <div style={{padding:'0 50px'}}>
+            <div style={{ padding: '0 50px' }}>
                 <h3>Login</h3>
                 <input placeholder="Name"
                     type="text"
@@ -80,6 +81,7 @@ function Login() {
                             setName(e.target.value);
                         }
                     }
+                    style={{ backgroundColor: '#ffffff', border: '1px solid #dfdfdf', borderRadius: '4px', height: '2.5rem', marginTop: '1.2rem', width: '100%', paddingLeft: '5px' }}
                 />{" "}
                 <input placeholder="Password"
                     type="password"
@@ -89,10 +91,11 @@ function Login() {
                             setPassword(e.target.value);
                         }
                     }
+                    style={{ backgroundColor: '#ffffff', border: '1px solid #dfdfdf', borderRadius: '4px', height: '2.5rem', marginTop: '0.2rem', width: '100%', paddingLeft: '5px' }}
                 /> {" "}
                 <button className="waves-effect waves-light btn large-btn"
                     onClick={
-                        () => signInUser()} style={{marginTop:'30px', backgroundColor:'#9ab7ca', color:'black'}} >
+                        () => signInUser()} style={{ marginTop: '1.2rem', backgroundColor: '#F2D6EB', color: '#F2D6EB', width: '102%' }} >
                     Sign IN {" "}
                 </button>{" "}
             </div>{" "}

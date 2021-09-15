@@ -1,0 +1,14 @@
+*{
+    color: #363636;
+}
+
+.allclass-card, .login-card{
+    background-image: url('./Images/subtle-prism.svg');
+    background-size: cover;
+}
+
+.subnav .active{
+    border-bottom: 2px solid #F2D6EB;
+    font-weight: bold;
+    background-color: #f7f7f7;
+}
